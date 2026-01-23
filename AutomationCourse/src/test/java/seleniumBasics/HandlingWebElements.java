@@ -12,7 +12,13 @@ public class HandlingWebElements extends Base{
 		msgbox.sendKeys("Welcome");
 		WebElement shwbtn=driver.findElement(By.id("button-one"));
 		shwbtn.click();
+		WebElement msgtxt=driver.findElement(By.id("message-one"));
+		System.out.println(msgtxt.getText());
+		msgbox.clear();
+		System.out.println(shwbtn.getTagName());
+				
 	}
+		
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
