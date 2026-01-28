@@ -1,0 +1,38 @@
+package seleniumBasics;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class HandlingActions extends Base{
+	public void verifyRightClick()
+	{
+		WebElement other=driver.findElement(By.id("others"));
+		Actions a =new Actions(driver);
+		a.contextClick(other).build().perform();
+	}
+	public void verifyMouseHover()
+	{
+		WebElement other=driver.findElement(By.id("others"));
+		Actions a =new Actions(driver);
+		a.moveToElement(other).build().perform();
+	}
+	public void verifyDragDrop()
+	{
+		driver.navigate().to("https://demoqa.com/droppable");
+		WebElement drag=driver.findElement(By.id("draggable"));
+		WebElement drop=driver.findElement(By.id("droppable"));
+		Actions a =new Actions(driver);
+		a.dragAndDrop(drag, drop).build().perform();
+	}
+
+	public static void main(String[] args) {
+		HandlingActions action=new HandlingActions();
+		action.browserLaunch();
+		//action.verifyRightClick();
+		//action.verifyMouseHover();
+		action.verifyDragDrop();
+
+	}
+
+}
